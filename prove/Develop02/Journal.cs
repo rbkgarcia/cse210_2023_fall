@@ -3,51 +3,51 @@ using System.IO;
 public class Journal
 {
     //Parameters of the class including a list of Entry and a String related to the name of the file where will be saved the journal
-    public List <Entry> _JournalEntries = new List<Entry>();
-    public string _JournalFileName;
+    public List <Entry> _journalEntries = new List<Entry>();
+    public string _journalFileName;
     //Methods of the class
     public void AddEntry()
     {
         //Add an entry to the List of entries
-        var NewEntry = new Entry();
-        NewEntry.GenerateEntry();
-        this._JournalEntries.Add(NewEntry);
+        var newEntry = new Entry();
+        newEntry.GenerateEntry();
+        this._journalEntries.Add(newEntry);
     }
     public void DisplayEntries() {
         //Display entries in List of entries
-        foreach (Entry entry in this._JournalEntries)
+        foreach (Entry entry in this._journalEntries)
         {
             //iterate through the list to display each entry
-            Console.WriteLine($"Date: {entry._EntryDate} - Prompt: {entry._EntryPrompt} \n{entry._EntryResponse}");
+            Console.WriteLine($"Date: {entry._entryDate} - Prompt: {entry._entryPrompt} \n{entry._entryResponse}");
         }
     }
     public void SaveJournal(){
         Console.WriteLine("What is the filename?");
-        this._JournalFileName = Console.ReadLine();//let user to state name of the file to save the Journal 
-        using StreamWriter outputFile = new StreamWriter(_JournalFileName);//State the output of the file
+        this._journalFileName = Console.ReadLine();//let user to state name of the file to save the Journal 
+        using StreamWriter outputFile = new StreamWriter(_journalFileName);//State the output of the file
 
         // Add the content to the file with the WriteLine method
-        foreach (Entry entry in this._JournalEntries)
+        foreach (Entry entry in this._journalEntries)
         {
             //iterate through the list to display each entry
-            outputFile.WriteLine($"Date: {entry._EntryDate} - Prompt: {entry._EntryPrompt} - {entry._EntryResponse}");
+            outputFile.WriteLine($"Date: {entry._entryDate} - Prompt: {entry._entryPrompt} - {entry._entryResponse}");
         }
     }
     public void LoadJournalFile(){
         //Load the journal from a file
         Console.WriteLine("What is the filename?");
-        this._JournalFileName = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(_JournalFileName);
+        this._journalFileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(_journalFileName);
         //Replace any entries currently stored the journal
-        this._JournalEntries = new List<Entry>();
+        this._journalEntries = new List<Entry>();
         foreach (string line in lines)
         {
             var entry = new Entry();
             string[] parts = line.Split(':','-','\n');
-            entry._EntryDate = parts[1].Trim();
-            entry._EntryPrompt = parts[3].Trim();
-            entry._EntryResponse=parts[4].Trim();
-            this._JournalEntries.Add(entry);
+            entry._entryDate = parts[1].Trim();
+            entry._entryPrompt = parts[3].Trim();
+            entry._entryResponse=parts[4].Trim();
+            this._journalEntries.Add(entry);
         }
         DisplayEntries();
     }
@@ -58,7 +58,7 @@ public class Journal
         while (selectedOption!=5) 
         {
             Console.WriteLine("Please select one of the following choices:");
-            List<string> MenuOptions = new List<string>
+            List<string> menuOptions = new List<string>
             {
                 "1. Write", 
                 "2. Display",
@@ -66,7 +66,7 @@ public class Journal
                 "4. Load",
                 "5. Quit",
             };
-            foreach (string option in MenuOptions)
+            foreach (string option in menuOptions)
             {
                 //iterate through the list to display each entry
                 Console.WriteLine(option);
