@@ -13,6 +13,16 @@ public class Journal
         newEntry.GenerateEntry();
         this._journalEntries.Add(newEntry);
     }
+    public void GenerateOwnEntry(){
+        Console.WriteLine("What is yout new prompt?");
+        var newEntry = new Entry
+        {
+            _entryPrompt = new PromptGenerator().AddOwnPrompt()
+        };
+        Console.WriteLine(newEntry._entryPrompt);
+        newEntry._entryResponse = Console.ReadLine();
+        this._journalEntries.Add(newEntry);
+    }
     public void DisplayEntries() {
         //Display entries in List of entries
         foreach (Entry entry in this._journalEntries)
@@ -53,18 +63,19 @@ public class Journal
     }
     public void Menu(){
         //Display and provide a menu that allows the user choose betwen write, display, save, load and quit options
-        int selectedOption= 0;
+        var selectedOption= "";
         //loop to iterate menu options and actions
-        while (selectedOption!=5) 
+        while (selectedOption!="6") 
         {
             Console.WriteLine("Please select one of the following choices:");
             List<string> menuOptions = new List<string>
             {
-                "1. Write", 
-                "2. Display",
-                "3. Save",
-                "4. Load",
-                "5. Quit",
+                "1. Write sugested entry",
+                "2. Write own entry", 
+                "3. Display",
+                "4. Save",
+                "5. Load",
+                "6. Quit",
             };
             foreach (string option in menuOptions)
             {
@@ -72,27 +83,35 @@ public class Journal
                 Console.WriteLine(option);
             }
             Console.WriteLine("What would you like to do?");
-            selectedOption =  Int32.Parse(Console.ReadLine());
+            selectedOption =  Console.ReadLine();
             //Switch to select the option and the method to execute according to the option
             switch(selectedOption)
             {
-                case 1:
+                case "1":
                     //Write an entry and save it to the entry list
                     AddEntry();
                     break;
-                case 2:
+                case "2":
+                    //Write own entry ans save it to the entry list
+                    GenerateOwnEntry();
+
+                    break;
+                case "3":
                     //Display the entries
                     DisplayEntries();
                     break;
-                case 3:
+                case "4":
                     //Write entries in an file and save it 
                     SaveJournal();
                     break;
-                case 4:
+                case "5":
                     //Read entries in an file and save these entries in the entry list  
                     LoadJournalFile();
                     break;
+                case "6":
+                    break;
                 default:
+                    Console.WriteLine("Unrecognized option, please enter an integer value from 1 to 6!");
                     break;
             }
         }
