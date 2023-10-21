@@ -1,32 +1,35 @@
 using System;
 public class Word
 {
-    //Parameters of the class including the word and the hide
+    //Attributes of the class including the word and the attribute that notifies if the word is hidden
     private string _word;
     private bool _hidden = false; //parameter to know if word is hidden
 
+    //Methods of the class
      public string GetRenderedText()
     {
-       return this._word;
+        //return word       
+        return this._word;
     }
         public bool GetHidden()
     {
-        //return the word
-        return _hidden; 
+        //return the hidden attribute
+        return this._hidden; 
     }
     public void SetWord(string newWord)
     {
-        //set word object
+        //set word
         this._word= newWord;
     }
     public void HideWord()
     {
-        //hide the word
+        //hide the word and set hidden attribute true
         this._word= "___";
         this._hidden=true;
     }
     public bool IsHide()
     {
+        //return true of false if word is hidden or not
         if (this._hidden==true){
             return true;
         }
@@ -37,6 +40,6 @@ public class Word
         public void ShowWord()
     {
         //display word
-        Console.WriteLine(_word +" ");
+        Console.WriteLine(this._word +" ");
     }
 }

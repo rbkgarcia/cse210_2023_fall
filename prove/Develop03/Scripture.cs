@@ -2,7 +2,7 @@ using System;
 using System.IO; 
 public class Scripture
 {
-    //Parameters of the class including a list of Verses, a Reference, and a boolean to know if all verse are hidden
+    //Attributes of the class including a list of Verses, a Reference, and a boolean to know if all verse are hidden
     private List <Verse> _scriptureVerses = new List<Verse>();
     private Reference _scriptureReference = new Reference();
     private bool _allVersesHidden = false;
@@ -10,15 +10,16 @@ public class Scripture
     //Methods of the class
     public Reference GetReference()
     {
-        //Add an entry to the List of entries
-        return _scriptureReference;
+        //get reference
+        return this._scriptureReference;
     }
     public List<Verse> GetVerses()
     {
-        //Add an entry to the List of entries
+        //get list of verses
         return this._scriptureVerses;
     }
     public void SetScripture(string newReference, List<String> newVerses){
+        //set reference and list of verses
         this._scriptureReference.SetReference(newReference);
         foreach (string verse in newVerses)
         {
@@ -28,12 +29,14 @@ public class Scripture
         }
     }
     public void HideWords() {
-        var listIndex = new Random().Next(_scriptureVerses.Count);
+        //hide random words from random verse
+        var listIndex = new Random().Next(this._scriptureVerses.Count);
         var verseToHide = this._scriptureVerses[listIndex];
         verseToHide.HideWordInVerse();
         verseToHide.VerseHidden();
     }
     public void ShowRenderedText(){
+        //display scripture    
         this._scriptureReference.DisplayReference();
          foreach (Verse verse in this._scriptureVerses)
         {
@@ -41,6 +44,7 @@ public class Scripture
         };
     }
     public bool VerseIsCompletelyHidden(){
+        //verify is all words in all verses are hidden
         var Count = 0;
         foreach (Verse verse in this._scriptureVerses)
         {
@@ -48,8 +52,8 @@ public class Scripture
                 Count++;
             };
         }
-        if(Count == _scriptureVerses.Count){
-            this._allVersesHidden = true;
+        if(Count == this._scriptureVerses.Count){
+            this._allVersesHidden = true; //set all verse hidden attribute to true
             return true;
         }
         else{
