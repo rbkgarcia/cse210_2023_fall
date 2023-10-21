@@ -4,6 +4,8 @@ public class Entry
     //Parameters of the class including the prompt, entry, and date, all as string type
     public string _entryResponse;
     public string _entryPrompt;
+
+    //Methods of the class
     public string _entryDate =  DateTime.Now.ToShortDateString();
     //Methods of the class
     public void GenerateEntry()

@@ -53,7 +53,7 @@ public class Journal
         foreach (string line in lines)
         {
             var entry = new Entry();
-            string[] parts = line.Split(':','-','\n');
+            string[] parts = line.Split(':','-');
             entry._entryDate = parts[1].Trim();
             entry._entryPrompt = parts[3].Trim();
             entry._entryResponse=parts[4].Trim();
