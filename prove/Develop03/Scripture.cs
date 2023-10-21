@@ -32,8 +32,14 @@ public class Scripture
         //hide random words from random verse
         var listIndex = new Random().Next(this._scriptureVerses.Count);
         var verseToHide = this._scriptureVerses[listIndex];
-        verseToHide.HideWordInVerse();
-        verseToHide.VerseHidden();
+
+        if (this._scriptureVerses[listIndex].VerseHidden()!=true){
+            verseToHide.HideWordInVerse();
+            verseToHide.VerseHidden();
+        }
+        else{
+            HideWords();
+        }
     }
     public void ShowRenderedText(){
         //display scripture    

@@ -47,18 +47,18 @@ public class Verse
     {
         //Set the attribute that notifies if all words are hidden
         var Count = 0;
-        foreach (Word word in this._verse)
+        foreach (Word word in _verse)
         {
             if (word.IsHide() ==true){
                 Count++;
             };
         }
-        if(Count== this._verse.Count){
-            this._verseHidden = true;
+        if(Count== _verse.Count){
+            _verseHidden = true;
             return true;
         }
         else{
-            this._verseHidden = false;
+            _verseHidden = false;
             return false;
         }
     }
