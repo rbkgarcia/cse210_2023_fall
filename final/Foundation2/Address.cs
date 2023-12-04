@@ -63,4 +63,8 @@ public class Address
     {
         Console.WriteLine($"Address: {_Street}, {_City}, {_State}, {_PostalCode}, {_Country}");
     }
+    public string FullAddress()
+    {
+        return ($"Address: {_Street}, {_City}, {_State}, {_PostalCode}, {_Country}");
+    }
 }

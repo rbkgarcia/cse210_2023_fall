@@ -22,7 +22,13 @@ public class Order
     }
     public double GetTotal()
     {
-        return _Total;
+        //local variable that will be recomputed when called method
+        double total = 0;
+        foreach (Product product in _Products)
+        {
+            total += product.GetPrice();
+        }
+        return total;
     }
     //Setters
     public void SetClient(Customer client)
@@ -45,12 +51,13 @@ public class Order
         {
             label+=("\n- " + product.GetName() + " - Quantity: "  + product.GetQuantity()+" - Price: $" + product.GetPrice());
         }
-        label+= ("{GetTotal()}");
+        label+= ("\n- Total: ${GetTotal()}");
         return label;
     }
     //Shipping Label
     public string GenerateShippingLabel(){
         string label ="Shipping Label:";
+        label+= ("\n- Name: " + _Client.GetName() + " - Address: " + _Client.GetCustomerAddress().FullAddress());
         return label;
     }
 }
