@@ -19,6 +19,6 @@ public class Reception : Event
     //return string with full details of the event
     public string GetFullDetails()
     {
-        return base.GetSimpleDetails() + $"\nRSVP: {_RSVP}";
+        return base.GetSimpleDetails() + $"\nRSVP: {_RSVP}"+ "\n";
     }
 }

@@ -22,6 +22,6 @@ public class Outdoor : Event
     //return string with full details of the event
     public string GetFullDetails()
     {
-        return base.GetSimpleDetails() + $"\nWeather Forecast: {_WeatherForecast}";
+        return base.GetSimpleDetails() + $"\nWeather Forecast: {_WeatherForecast}"+ "\n";
     }
 }

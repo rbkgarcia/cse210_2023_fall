@@ -29,6 +29,6 @@ public class Lecture : Event
     //return string with full details of the event
     public string GetFullDetails()
     {
-        return base.GetSimpleDetails() + $"\nSpeaker: " + _SpeakerName + $"\nCapacity: " + _Capacity;
+        return base.GetSimpleDetails() + $"\nSpeaker: " + _SpeakerName + $"\nCapacity: " + _Capacity+ "\n";
     }
 }
