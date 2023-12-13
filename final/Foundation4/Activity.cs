@@ -1,16 +1,17 @@
 public abstract class Activity
 {
-    //Attributes including Date and Length
-    protected string _Date;
+    //Attributes including Date and Length in minutes
+    protected DateTime _Date;
     protected int _Length;
+  
     //constructor
-    public Activity(string date, int length)
+    public Activity(DateTime date, int length)
     {
         _Date = date;
         _Length = length;
     }
     //getters
-    public string GetDate()
+    public DateTime GetDate()
     {
         return _Date;
     }
@@ -19,7 +20,7 @@ public abstract class Activity
         return _Length;
     }
     //setters
-    public void SetDate(string date)
+    public void SetDate(DateTime date)
     {
         _Date = date;
     }

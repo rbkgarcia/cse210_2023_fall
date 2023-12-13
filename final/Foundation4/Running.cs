@@ -2,14 +2,14 @@ public class Running : Activity
 {
     private int _Distance;
     //constructor
-    public Running(string date, int length, int distance) : base(date, length)
+    public Running(DateTime date, int length, int distance) : base(date, length)
     {
         _Distance = distance;
     }
     //overrided get distance method
     public override double GetDistance()
     {
-        return _Distance;
+        return Convert.ToDouble(_Distance);
     }
     //setters
     public void SetDistance(int distance)
@@ -19,16 +19,16 @@ public class Running : Activity
     //overrided get speed method
     public override double GetSpeed()
     {
-        return _Distance / _Length;
+        return (_Distance / Convert.ToDouble(_Length)) * 60;
     }
     //overrided get pace method
     public override double GetPace()
     {
-        return _Length / _Distance;
+        return Convert.ToDouble(_Length) / _Distance;
     }
     //overrided DisplaySummary method
     public override void DisplaySummary()
     {
-        Console.WriteLine($"{_Date} Running ({_Length} min) - Distance: {_Distance} km, Speed: {GetSpeed()} km/h, Pace: {GetPace()} min per km");
+        Console.WriteLine($"{_Date.ToString("dd MMM yyyy")} Running ({_Length} min) - Distance: {GetDistance().ToString("0.##")} km, Speed: {GetSpeed().ToString("0.##")} km/h, Pace: {GetPace().ToString("0.##")} min per km");
     }
 }
