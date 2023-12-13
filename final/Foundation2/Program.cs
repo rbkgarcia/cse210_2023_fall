@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        //clear window
+        Console.Clear();
+
         //first order
         Address address1 = new Address("Las Acacias", "Caracas", "Capital District", 1050, "Venezuela");
         Customer customer1 = new Customer("Rebeca", address1);
@@ -25,10 +28,10 @@ class Program
         Product product6 = new Product("Kiwi", 0.99, 5, 6);
         order2.SetProducts(new List<Product> { product1, product2, product3 });
 
-        Console.WriteLine("Packing Label Order 1: {order1.Generateabel()}");
-        Console.WriteLine("Shipping Label Order 1: {order1.GenerateShippingLabel()}");
-        Console.WriteLine("Packing Label Order 2: {order2.GeneratePackingLabel()}");
-        Console.WriteLine("Shipping Label Order 2: {order2.GenerateShippingLabel()}");
+        Console.WriteLine($"Order 1: {order1.GeneratePackingLabel()}");
+        Console.WriteLine($"Shipping to: {order1.GenerateShippingLabel()}");
+        Console.WriteLine($"Order 2: {order2.GeneratePackingLabel()}");
+        Console.WriteLine($"Shipping to: {order2.GenerateShippingLabel()}");
 
     }
 }

@@ -51,7 +51,7 @@ public class Video
         Console.WriteLine($"Author of video: {GetAuthor()}");
         Console.WriteLine($"Length of video: {GetLength()} minutes");
         //display comments
-        Console.WriteLine($"\t Comments of {GetAuthor()}'s Video");
+        Console.WriteLine($"\tComments of {GetAuthor()}'s Video");
         foreach (Comment comment in _Comments)
         {
             comment.DisplayComment();

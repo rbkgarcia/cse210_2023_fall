@@ -46,18 +46,18 @@ public class Order
     //Packing Label
     public String GeneratePackingLabel()
     {
-        string label ="Packing Label";
+        string label ="";
         foreach (Product product in _Products)
         {
-            label+=("\n- " + product.GetName() + " - Quantity: "  + product.GetQuantity()+" - Price: $" + product.GetPrice());
+            label+=($"\n- " + product.GetName() + " - Quantity: "  + product.GetQuantity()+" - Price: $" + product.GetPrice().ToString("0.##"));
         }
-        label+= ("\n- Total: ${GetTotal()}");
+        label+= ($"\n- Total: ${GetTotal().ToString("0.##")}");
         return label;
     }
     //Shipping Label
     public string GenerateShippingLabel(){
-        string label ="Shipping Label:";
-        label+= ("\n- Name: " + _Client.GetName() + " - Address: " + _Client.GetCustomerAddress().FullAddress());
+        string label ="";
+        label+= ($"\n- Name: " + _Client.GetName() + " - Address: " + _Client.GetCustomerAddress().FullAddress());
         return label;
     }
 }
