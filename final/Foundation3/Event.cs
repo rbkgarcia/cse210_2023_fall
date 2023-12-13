@@ -36,7 +36,7 @@ public class Event
     {
         _Time = time;
     }
-    public void SetLocation(string location)
+    public void SetLocation(Address location)
     {
         _Location = location;
     }
@@ -58,14 +58,14 @@ public class Event
     {
         return _Time;
     }
-    public string GetLocation()
+    public Address GetLocation()
     {
         return _Location;
     }
     //return a string with simple details of the event
     public string GetSimpleDetails()
     {
-        return $"{_Title}\n{_Description}\n{_Date.ToString("d")}\n{_Time}\n{_Location}";
+        return $"Title: {_Title}\nEvent: {_Description}\nDate:{_Date.ToString("d")}\nTime:{_Time}\nLocation:{_Location.FullAddress()}";
     }
     //Display details of the event
 

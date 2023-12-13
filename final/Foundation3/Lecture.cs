@@ -3,7 +3,7 @@ public class Lecture : Event
     private string _SpeakerName;
     private int _Capacity;
     //constructor
-    public Lecture(string title, string description, DateTime date, string time, string location, string speakerName, int capacity) : base(title, description, date, time, location)
+    public Lecture(string title, string description, DateTime date, string time, Address location, string speakerName, int capacity) : base(title, description, date, time, location)
     {
         _SpeakerName = speakerName;
         _Capacity = capacity;
@@ -29,6 +29,6 @@ public class Lecture : Event
     //return string with full details of the event
     public string GetFullDetails()
     {
-        return base.GetSimpleDetails() + "\nSpeaker: " + _SpeakerName + "\nCapacity: " + _Capacity;
+        return base.GetSimpleDetails() + $"\nSpeaker: " + _SpeakerName + $"\nCapacity: " + _Capacity;
     }
 }

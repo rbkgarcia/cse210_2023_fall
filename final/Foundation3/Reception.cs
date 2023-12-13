@@ -2,7 +2,7 @@ public class Reception : Event
 {
     private string _RSVP;
     //constructor
-    public Reception(string title, string description, DateTime date, string time, string location, string RSVP) : base(title, description, date, time, location)
+    public Reception(string title, string description, DateTime date, string time, Address location, string RSVP) : base(title, description, date, time, location)
     {
         _RSVP = RSVP;
     }
@@ -19,6 +19,6 @@ public class Reception : Event
     //return string with full details of the event
     public string GetFullDetails()
     {
-        return base.GetSimpleDetails() + "\n{_RSVP}";
+        return base.GetSimpleDetails() + $"\nRSVP: {_RSVP}";
     }
 }
